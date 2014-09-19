@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+PYDIRTY_PLACES=${*:-'.'}
+
+python -m compileall PYDIRTY_PLACES
+
+find ${PYDIRTY_PLACES} -type f -name "*.py" -delete
