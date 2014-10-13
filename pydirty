@@ -2,6 +2,29 @@
 
 PYDIRTY_PLACES=${*:-'.'}
 
+about() {
+    echo "pydirty v0.1"
+    exit 0
+}
+
+usage() {
+    echo "Help!"
+    exit 0
+}
+
+# Loop through the arguments.
+while [ "$1" ]; do
+    case $1 in
+        --help|-h)
+            usage
+            ;;
+        --version|-v)
+            about
+            ;;
+    esac
+    shift
+done
+
 python -m compileall PYDIRTY_PLACES
 
 find ${PYDIRTY_PLACES} -type f -name "*.py" -delete
